@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Counter Presentation
+    meta(name="google" content="notranslate")
+    link(rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon")
+    link(rel="stylesheet" href="style.css")
+  body
+    section
+    aside.stick
+    main.contador
+
+    script.
+      const $ = el => document.querySelector(el);
+      const $contador = $('.contador');
+      const $stick = $('.stick');
+      let bowlInterval = null;
+      let contador = 0;
+
+      function addContador() {
+        if (contador < 101) {
+          $contador.textContent = `${contador}%`;
+          $stick.style.width = `${contador}%`;
+          contador++;
+        } else {
+          setInterval(bowlInterval);
+        }
+      }
+
+      setTimeout(() => {
+        $contador.innerHTML = 'WELCOME';
+      }, 6000);
+
+      bowlInterval = setInterval(addContador, 50);
